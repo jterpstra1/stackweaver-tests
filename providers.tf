@@ -2,11 +2,12 @@
 terraform {
   backend "remote" {
     hostname     = "stack.truyens.pro"
-    organization = "default"
-    token = "<YOUR_TOKEN>"
+    organization = "mike"
+    # token = "<YOUR_TOKEN>"
+    token = ""
 
     workspaces {
-      name = "default"
+      name = "mike"
     }
   }
 #   required_providers {
