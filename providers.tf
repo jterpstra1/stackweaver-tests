@@ -4,7 +4,7 @@ terraform {
     hostname     = "stack.truyens.pro"
     organization = "mike"
     # token = "<YOUR_TOKEN>"
-    token = ""
+    token = "tfe-CCUA1UPWRTI9jckzEvz6GY3EHcVyQNPbog6-FtzvNz4"
     workspaces {
       name = "mike"
     }
@@ -18,6 +18,10 @@ terraform {
     random = {
       source  = "hashicorp/random"
       version = "~> 3.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.9"
     }
 #    aws = {
 #      source  = "hashicorp/aws"

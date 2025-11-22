@@ -19,3 +19,17 @@ resource "null_resource" "server" {
     command = "echo 'Destroying server ${self.triggers.server_id}'"
   }
 }
+
+resource "time_sleep" "wait_2_minutes" {
+  create_duration = "2m"
+}
+
+# Make another resource depend on the sleep,
+# this will give us time to see the run state in the UI
+resource "null_resource" "after_wait" {
+  depends_on = [time_sleep.wait_2_minutes]
+  
+  provisioner "local-exec" {
+    command = "echo 'Waited 2 minutes!'"
+  }
+}
