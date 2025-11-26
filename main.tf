@@ -6,6 +6,7 @@ resource "random_id" "server" {
 # Create 10 resources that each take ~20 seconds to apply
 # This allows testing real-time polling and status updates during apply
 
+
 resource "time_sleep" "resource_1" {
   create_duration = "5s"
 }
