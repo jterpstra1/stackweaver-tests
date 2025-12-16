@@ -22,3 +22,11 @@ variable "AWS_ASSUME_ROLE_ARN" {
   type    = string
   default = null
 }
+
+# Test variable for StackWeaver variable integration testing
+# This variable should be set in StackWeaver workspace variables to test the integration
+variable "test_var" {
+  type        = string
+  description = "Test variable for StackWeaver integration testing"
+  default     = "default-value"
+}

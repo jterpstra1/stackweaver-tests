@@ -80,3 +80,10 @@ resource "local_file" "deprecated_test" {
   filename = "${path.module}/deprecated_test.txt"
   content  = "test"
 }
+
+# Output for testing StackWeaver variable integration
+# This output will display the value of test_var to verify StackWeaver variables are working
+output "test_var_output" {
+  description = "Output showing the value of test_var to verify StackWeaver variable integration"
+  value       = var.test_var
+}
