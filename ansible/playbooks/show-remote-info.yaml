@@ -1,0 +1,42 @@
+---
+- name: Retrieve basic system information
+  hosts: all
+  become: false
+  gather_facts: true
+
+  tasks:
+    - name: Show hostname
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Show OS and version
+      debug:
+        msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Show kernel version
+      debug:
+        msg: "Kernel: {{ ansible_kernel }}"
+
+    - name: Show uptime
+      command: uptime -p
+      register: uptime_output
+
+    - name: Print uptime
+      debug:
+        msg: "Uptime: {{ uptime_output.stdout }}"
+
+    - name: Show CPU cores
+      debug:
+        msg: "CPU cores: {{ ansible_processor_vcpus }}"
+
+    - name: Show memory info
+      debug:
+        msg: "Memory: {{ ansible_memtotal_mb }} MB total / {{ ansible_memfree_mb }} MB free"
+
+    - name: Show disk usage
+      command: df -h /
+      register: disk_usage
+
+    - name: Print disk usage
+      debug:
+        msg: "{{ disk_usage.stdout_lines }}"
